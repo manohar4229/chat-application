@@ -28,9 +28,6 @@ COPY --from=builder /app/controllers ./controllers
 COPY --from=builder /app/middleware ./middleware
 COPY --from=builder /app/models ./models
 
-# Copy production environment file
-COPY .env.production .env
-
 # Set environment variables
 ENV NODE_ENV=production
 
