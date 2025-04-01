@@ -64,6 +64,10 @@ RUN npm ci --only=production
 
 # Set environment variables
 ENV NODE_ENV=production
+ENV PORT=5000
+ENV MONGODB_URI=mongodb+srv://chatapp:chatapp@cluster0.obgakxi.mongodb.net/
+ENV JWT_SECRET=manohar
+ENV CLIENT_URL=https://chat-client-wine.vercel.app/
 
 # Create startup script
 RUN echo '#!/bin/sh\n\
