@@ -12,6 +12,9 @@ RUN npm ci
 # Copy client source code
 COPY client/ .
 
+# Copy production environment file
+COPY client/.env.production .env
+
 # Build the client application
 ENV NODE_ENV=production
 RUN npm run build
@@ -51,6 +54,9 @@ COPY --from=server-builder /app/server/controllers ./server/controllers
 COPY --from=server-builder /app/server/middleware ./server/middleware
 COPY --from=server-builder /app/server/models ./server/models
 COPY --from=server-builder /app/server/package*.json ./server/
+
+# Copy production environment file
+COPY server/.env.production ./server/.env
 
 # Install server production dependencies
 WORKDIR /app/server
